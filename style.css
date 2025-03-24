@@ -1,29 +1,24 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
+  background-color: #f4f4f4;
   color: #333;
   margin: 0;
   padding: 30px;
   text-align: center;
 }
-h1, h2 {
-  color: #9b59b6;
-}
 .section {
   max-width: 800px;
   margin: 0 auto 40px;
 }
-a {
-  color: #2c3e50;
-  text-decoration: none;
+h1, h2 {
+  color: #6a1b9a;
 }
-.resume-btn {
-  display: inline-block;
-  margin: 20px 0;
-  padding: 10px 20px;
-  background-color: #9b59b6;
-  color: white;
-  border-radius: 5px;
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+a {
+  color: #6a1b9a;
   text-decoration: none;
 }
 form input, form textarea {
@@ -34,50 +29,10 @@ form input, form textarea {
   border-radius: 5px;
 }
 form button {
-  background-color: #9b59b6;
+  background-color: #6a1b9a;
   color: white;
   border: none;
   padding: 10px 20px;
-  cursor: pointer;
   border-radius: 5px;
-}
-.social a {
-  margin: 0 10px;
-  display: inline-block;
-}
-.resume-btn:hover,
-form button:hover {
-  background-color: #8e44ad;
-  transform: scale(1.05);
-  transition: all 0.3s ease;
-}
-a:hover {
-  color: #8e44ad;
-  transition: color 0.3s ease;
-}
-@media (max-width: 600px) {
-  body {
-    padding: 15px;
-  }
-  .section {
-    margin: 0 auto 30px;
-  }
-  form input, form textarea {
-    font-size: 16px;
-  }
-}
-body.dark-mode {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-}
-body.dark-mode a {
-  color: #90caf9;
-}
-body.dark-mode .resume-btn,
-body.dark-mode form button {
-  background-color: #9b59b6;
-}
-body.dark-mode .resume-btn:hover,
-body.dark-mode form button:hover {
-  background-color: #8e44ad;
+  cursor: pointer;
 }
