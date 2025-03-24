@@ -7,7 +7,7 @@ body {
   text-align: center;
 }
 h1, h2 {
-  color: #2ecc71;
+  color: #3498db;
 }
 .section {
   max-width: 800px;
@@ -21,7 +21,7 @@ a {
   display: inline-block;
   margin: 20px 0;
   padding: 10px 20px;
-  background-color: #2ecc71;
+  background-color: #3498db;
   color: white;
   border-radius: 5px;
   text-decoration: none;
@@ -34,7 +34,7 @@ form input, form textarea {
   border-radius: 5px;
 }
 form button {
-  background-color: #2ecc71;
+  background-color: #3498db;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -47,12 +47,12 @@ form button {
 }
 .resume-btn:hover,
 form button:hover {
-  background-color: #27ae60;
+  background-color: #2980b9;
   transform: scale(1.05);
   transition: all 0.3s ease;
 }
 a:hover {
-  color: #27ae60;
+  color: #2980b9;
   transition: color 0.3s ease;
 }
 @media (max-width: 600px) {
@@ -75,9 +75,9 @@ body.dark-mode a {
 }
 body.dark-mode .resume-btn,
 body.dark-mode form button {
-  background-color: #4caf50;
+  background-color: #3498db;
 }
 body.dark-mode .resume-btn:hover,
 body.dark-mode form button:hover {
-  background-color: #66bb6a;
+  background-color: #2980b9;
 }
