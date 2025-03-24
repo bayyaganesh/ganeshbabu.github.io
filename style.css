@@ -45,8 +45,6 @@ form button {
   margin: 0 10px;
   display: inline-block;
 }
-
-/* Hover Effects */
 .resume-btn:hover,
 form button:hover {
   background-color: #27ae60;
@@ -57,8 +55,6 @@ a:hover {
   color: #27ae60;
   transition: color 0.3s ease;
 }
-
-/* Responsive */
 @media (max-width: 600px) {
   body {
     padding: 15px;
@@ -70,8 +66,6 @@ a:hover {
     font-size: 16px;
   }
 }
-
-/* Dark Mode */
 body.dark-mode {
   background-color: #1e1e1e;
   color: #e0e0e0;
