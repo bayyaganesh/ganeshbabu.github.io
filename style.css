@@ -13,12 +13,13 @@ body {
 h1, h2 {
   color: #6a1b9a;
 }
-table {
-  width: 100%;
-  margin-top: 20px;
-}
-a {
-  color: #6a1b9a;
+.resume-btn {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background-color: #6a1b9a;
+  color: white;
+  border-radius: 5px;
   text-decoration: none;
 }
 form input, form textarea {
@@ -33,6 +34,6 @@ form button {
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: 5px;
   cursor: pointer;
+  border-radius: 5px;
 }
