@@ -29,7 +29,7 @@
 }
 #chatbot-container.visible { display: flex; }
 #chat-header {
-  background: #007bff;
+  background: #8e44ad;
   color: white;
   padding: 10px;
   border-top-left-radius: 12px;
@@ -53,7 +53,7 @@
 #chatbot-container button {
   margin: 5px 10px 10px;
   padding: 6px;
-  background: #007bff;
+  background: #8e44ad;
   color: white;
   border: none;
   cursor: pointer;
