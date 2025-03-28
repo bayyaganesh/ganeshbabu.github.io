@@ -36,16 +36,21 @@ document.getElementById("send-btn").onclick = async () => {
     const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/enthiran-chatbot", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: userName,
-        email: userEmail,
-        message: input
-      })
+      body: JSON.stringify({ name: userName, email: userEmail, message: input })
     });
+
     const data = await res.json();
     console.log("Response from n8n:", data);
-   document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> ${data.response || data.reply || 'Sorry, something went wrong.'}</div>`;
+
+    // Handle structured OpenAI response
+    const key = Object.keys(data)[0];
+    const nested = data[key];
+    const nestedText = typeof nested === "object" ? Object.values(nested)[0] : "";
+    const reply = `${key} ${nestedText}`;
+
+    document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> ${reply || 'Sorry, something went wrong.'}</div>`;
   } catch (err) {
+    console.error("Chatbot error:", err);
     document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> Error connecting to server.</div>`;
   }
 };
@@ -64,6 +69,7 @@ document.getElementById("submit-lead").onclick = async () => {
     });
     alert("Thanks! We'll get back to you shortly.");
   } catch (err) {
+    console.error("Lead submission error:", err);
     alert("Lead submission failed.");
   }
 };
