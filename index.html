@@ -1,33 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Chatbot - TBN POC</title>
-  <link rel="stylesheet" href="assets/chatbot.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ganesh Babu - Data Expert</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon_gb_gradient.ico" type="image/x-icon">
+  <link rel="stylesheet" href="chatbot.css">
 </head>
 <body>
-  <div id="chatbot-icon">
-    <img src="assets/tbn-bot-icon.png" alt="Chatbot" />
-  </div>
+  <div class="section">
+    <img src="logo_gb_gradient.png" alt="Logo" style="width:100px;height:100px;margin: 20px auto;">
+    <h1>Ganesh Babu</h1>
+    <p><strong>Data Architecture • Business Intelligence • Analytics Strategy • Team Leadership</strong></p>
 
-  <div id="chatbot-container">
-    <div id="chat-header">🤖 TBN Smart Assistant</div>
-    <div id="chat-log"></div>
-    <input type="text" id="user-input" placeholder="Ask me anything..." />
-    <button id="send-btn">Send</button>
+    <h2>About Me</h2>
+    <p>Welcome to my professional corner! I am a seasoned data expert with over 12 years of experience in Business Intelligence, Data Analysis, and Data Science Architecture. Throughout my career, I have mastered the art of transforming complex data into actionable insights, driving strategic decision-making and empowering organizations to thrive in data-driven environments.</p>
+    <p>My approach combines problem-solving prowess, a determined go-getter mindset, and exceptional management abilities. These qualities enable me to tackle intricate challenges head-on, deliver innovative solutions, and inspire teams to achieve their fullest potential. Whether it's architecting scalable data platforms or navigating nuanced analytics, I bring vision, precision, and dedication to every project I undertake.</p>
+    <p>Beyond the numbers and algorithms, I pride myself on fostering collaboration and building meaningful connections—because successful data strategies are powered not just by technology but by people.</p>
+    <p>Feel free to explore my website to learn more about my journey, expertise, and the exciting projects I've been part of. Let’s uncover the stories hidden in your data together!</p>
 
-    <div id="lead-form">
-      <h4>Leave Your Details</h4>
-      <input type="text" id="lead-name" placeholder="Your Name" />
-      <input type="email" id="lead-email" placeholder="Your Email" />
-      <textarea id="lead-message" placeholder="Your Message or Appointment Request"></textarea>
-      <button id="submit-lead">Submit</button>
-      <p id="status-msg" style="font-size: 13px;"></p>
+    <div class="section">
+      <h2>Hobbies & Fun Facts</h2>
+      <p>I enjoy hiking, watching movies, and pleasant morning walks. I love to stay healthy and hit the gym regularly.</p>
+    </div>
+
+    <div class="section">
+      <h2>Projects</h2>
+      <ul style="text-align:left; max-width: 600px; margin: 0 auto;">
+        <li><strong>Data Migration:</strong> Led data migration from EDW to Azure Data Lake as an Information Architect.</li>
+        <li><strong>Dashboards and Data Quality:</strong> Delivered insights and maintained high data accuracy via executive dashboards.</li>
+        <li><strong>Automation of Risk Assessment:</strong> Automated key risk assessment workflows to enhance regulatory compliance and reduce manual effort.</li>
+        <li><strong>Anti Money Laundering:</strong> Contributed to AML initiatives with data-driven monitoring and alerts.</li>
+        <li><strong>Risk Profiling Models:</strong> Developed risk profiling models using SAS, SAS Enterprise Miner, and Python.</li>
+      </ul>
+    </div>
+
+    <a href="services.html" class="resume-btn">Explore My Services</a>
+
+    <div class="section">
+      <h2>Contact Me</h2>
+      <p>📧 Email: <a href="mailto:ganeshb17@outlook.com">ganeshb17@outlook.com</a></p>
+      <form action="https://formsubmit.co/ganeshb17@outlook.com" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
   </div>
-
-  <script src="assets/chatbot.js"></script>
+  <script src="chatbot.js"></script>
 </body>
 </html>
