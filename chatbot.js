@@ -35,10 +35,14 @@ document.body.appendChild(chatContainer);
 botIcon.onclick = () => chatContainer.classList.toggle("visible");
 
 // 💬 Chatbot conversation
+
+const getCurrentPage = () => window.location.pathname || "unknown";
+
 document.getElementById("send-btn").onclick = async () => {
   const input = document.getElementById("user-input").value.trim();
   const userName = document.getElementById("lead-name")?.value || "Guest";
   const userEmail = document.getElementById("lead-email")?.value || "guest@example.com";
+  const page = getCurrentPage();
 
   if (!input) return;
   document.getElementById("chat-log").innerHTML += `<div><strong>You:</strong> ${input}</div>`;
@@ -48,7 +52,7 @@ document.getElementById("send-btn").onclick = async () => {
     const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/enthiran-chatbot", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: userName, email: userEmail, message: input })
+      body: JSON.stringify({ name: userName, email: userEmail, message: input, page })
     });
 
     const data = await res.json();
@@ -66,6 +70,7 @@ document.getElementById("submit-lead").onclick = async () => {
   const name = document.getElementById("lead-name").value;
   const email = document.getElementById("lead-email").value;
   const message = document.getElementById("lead-message").value;
+  const page = getCurrentPage();
 
   if (!name || !email || !message) return alert("Please fill all fields");
 
@@ -79,7 +84,8 @@ document.getElementById("submit-lead").onclick = async () => {
         name,
         email,
         message,
-        ...utmParams // ⬅️ Include utm_source, utm_medium, utm_campaign
+        ...utmParams, // ⬅️ Include utm_source, utm_medium, utm_campaign
+        page // include current page
       })
     });
 
