@@ -1,4 +1,3 @@
-// chatbot.js
 const botIcon = document.createElement("div");
 botIcon.id = "chatbot-icon";
 botIcon.innerHTML = '<img src="assets/tbn-bot-icon.png" alt="Chatbot" />';
@@ -56,12 +55,22 @@ document.getElementById("submit-lead").onclick = async () => {
   if (!name || !email || !message) return alert("Please fill all fields");
 
   try {
-    await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/lead-capture", {
+    const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/lead-capture", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, message })
     });
-    alert("Thanks! We'll get back to you shortly.");
+
+    const result = await res.json();
+    console.log("Lead response:", result);
+
+    alert(`🎉 Thanks, ${name}! We'll get back to you shortly.`);
+
+    // Clear the form fields after submission
+    document.getElementById("lead-name").value = "";
+    document.getElementById("lead-email").value = "";
+    document.getElementById("lead-message").value = "";
+    
   } catch (err) {
     console.error("Lead submission error:", err);
     alert("Lead submission failed.");
