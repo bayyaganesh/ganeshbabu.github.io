@@ -8,8 +8,8 @@ function getUTMParams() {
   };
 }
 
-// 🌐 Track current page
-const currentPage = window.location.pathname;
+// 🌐 Page awareness
+const currentPage = window.location.pathname;  // e.g., "/services.html"
 
 // 🤖 Create chatbot icon
 const botIcon = document.createElement("div");
@@ -35,16 +35,17 @@ chatContainer.innerHTML = `
 `;
 document.body.appendChild(chatContainer);
 
-// 💬 Toggle visibility
+// 💬 Toggle chatbot visibility
 botIcon.onclick = () => chatContainer.classList.toggle("visible");
 
-// 💬 Chatbot conversation
+// ✉️ Chat submit logic
 document.getElementById("send-btn").onclick = async () => {
   const input = document.getElementById("user-input").value.trim();
   const userName = document.getElementById("lead-name")?.value || "Guest";
   const userEmail = document.getElementById("lead-email")?.value || "guest@example.com";
 
   if (!input) return;
+
   document.getElementById("chat-log").innerHTML += `<div><strong>You:</strong> ${input}</div>`;
   document.getElementById("user-input").value = "";
 
@@ -56,7 +57,7 @@ document.getElementById("send-btn").onclick = async () => {
         name: userName,
         email: userEmail,
         message: input,
-        page: currentPage  // 📄 Add current page
+        page: currentPage // ⬅️ Send current page to backend
       })
     });
 
@@ -70,14 +71,15 @@ document.getElementById("send-btn").onclick = async () => {
   }
 };
 
-// 📩 Lead form submission
+// 📩 Lead form submission with UTM tracking
 document.getElementById("submit-lead").onclick = async () => {
   const name = document.getElementById("lead-name").value;
   const email = document.getElementById("lead-email").value;
   const message = document.getElementById("lead-message").value;
-  const utmParams = getUTMParams();  // 📊 Campaign tracking
 
   if (!name || !email || !message) return alert("Please fill all fields");
+
+  const utmParams = getUTMParams();
 
   try {
     const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/lead-capture", {
@@ -87,8 +89,7 @@ document.getElementById("submit-lead").onclick = async () => {
         name,
         email,
         message,
-        page: currentPage,     // 📄 Current page
-        ...utmParams           // 📊 utm_source, utm_medium, utm_campaign
+        ...utmParams
       })
     });
 
@@ -97,7 +98,6 @@ document.getElementById("submit-lead").onclick = async () => {
 
     alert(`🎉 Thanks, ${name}! We'll get back to you shortly.`);
 
-    // Reset form
     document.getElementById("lead-name").value = "";
     document.getElementById("lead-email").value = "";
     document.getElementById("lead-message").value = "";
