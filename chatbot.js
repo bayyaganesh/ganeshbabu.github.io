@@ -1,4 +1,3 @@
-
 // chatbot.js
 const botIcon = document.createElement("div");
 botIcon.id = "chatbot-icon";
@@ -25,21 +24,24 @@ document.body.appendChild(chatContainer);
 botIcon.onclick = () => chatContainer.classList.toggle("visible");
 
 document.getElementById("send-btn").onclick = async () => {
-  const input = document.getElementById("user-input").value;
+  const input = document.getElementById("user-input").value.trim();
+  const userName = document.getElementById("lead-name")?.value || "Guest";
+  const userEmail = document.getElementById("lead-email")?.value || "guest@example.com";
+
   if (!input) return;
   document.getElementById("chat-log").innerHTML += `<div><strong>You:</strong> ${input}</div>`;
   document.getElementById("user-input").value = "";
 
   try {
-   const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/enthiran-chatbot", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    name: userName,      // Replace with actual variable or form value
-    email: userEmail,    // Replace with actual variable or form value
-    message: input       // 'input' is the user's chatbot message
-  })
-});
+    const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/enthiran-chatbot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: userName,
+        email: userEmail,
+        message: input
+      })
+    });
     const data = await res.json();
     document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> ${data.reply || 'Sorry, something went wrong.'}</div>`;
   } catch (err) {
