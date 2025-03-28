@@ -31,11 +31,15 @@ document.getElementById("send-btn").onclick = async () => {
   document.getElementById("user-input").value = "";
 
   try {
-    const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/enthiran-chatbot", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: input })
-    });
+   const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/enthiran-chatbot", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    name: userName,      // Replace with actual variable or form value
+    email: userEmail,    // Replace with actual variable or form value
+    message: input       // 'input' is the user's chatbot message
+  })
+});
     const data = await res.json();
     document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> ${data.reply || 'Sorry, something went wrong.'}</div>`;
   } catch (err) {
