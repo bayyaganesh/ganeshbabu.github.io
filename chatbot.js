@@ -41,8 +41,7 @@ document.getElementById("send-btn").onclick = async () => {
 
     const data = await res.json();
     console.log("Response from n8n:", data);
-
-    const reply = data.response || "Sorry, something went wrong.";
+    const reply = data.response || 'Sorry, something went wrong.';
     document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> ${reply}</div>`;
   } catch (err) {
     console.error("Chatbot error:", err);
