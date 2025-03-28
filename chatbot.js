@@ -1,21 +1,20 @@
-
-// chatbot.js
 const botIcon = document.createElement("div");
 botIcon.id = "chatbot-icon";
-botIcon.innerHTML = '<img src="assets/tbn-bot-icon.png" alt="Chatbot" />';
+botIcon.innerHTML = '<img src="assets/tbn-bot-icon.png" alt="Chatbot" width="40" />';
 document.body.appendChild(botIcon);
 
 const chatContainer = document.createElement("div");
 chatContainer.id = "chatbot-container";
 chatContainer.innerHTML = `
-  <div id="chat-header">💬 TBN Chatbot</div>
+  <div id="chat-header">🤖 TBN Smart Assistant</div>
   <div id="chat-log"></div>
   <input type="text" id="user-input" placeholder="Ask a question..." />
   <button id="send-btn">Send</button>
   <div id="lead-form">
+    <h4>Leave Your Details</h4>
     <input type="text" id="lead-name" placeholder="Your Name" />
     <input type="email" id="lead-email" placeholder="Your Email" />
-    <textarea id="lead-message" placeholder="Your Message"></textarea>
+    <textarea id="lead-message" placeholder="Your Message or Appointment Request"></textarea>
     <button id="submit-lead">Submit</button>
   </div>
 `;

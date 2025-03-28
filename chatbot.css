@@ -1,60 +1,68 @@
-
-/* chatbot.css */
 #chatbot-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  z-index: 999;
-}
-#chatbot-icon img {
-  width: 100%;
+  background: white;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px #888;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 9999;
 }
 #chatbot-container {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 300px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 12px;
   display: none;
-  flex-direction: column;
-  font-family: sans-serif;
-  z-index: 999;
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 320px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  z-index: 9999;
 }
-#chatbot-container.visible { display: flex; }
+#chatbot-container.visible {
+  display: block;
+}
 #chat-header {
-  background: #8e44ad;
+  background-color: #4b0082;
   color: white;
   padding: 10px;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  font-weight: bold;
   text-align: center;
+  font-weight: bold;
 }
 #chat-log {
-  padding: 10px;
-  height: 150px;
+  max-height: 250px;
   overflow-y: auto;
+  padding: 10px;
   font-size: 14px;
 }
-#chatbot-container input, #chatbot-container textarea {
-  margin: 5px 10px;
+#user-input {
+  width: 75%;
   padding: 6px;
-  font-size: 14px;
-  width: calc(100% - 20px);
-  box-sizing: border-box;
+  margin: 5px;
 }
-#chatbot-container button {
-  margin: 5px 10px 10px;
+#send-btn {
+  width: 20%;
   padding: 6px;
-  background: #8e44ad;
+  margin: 5px;
+  background-color: #4b0082;
   color: white;
   border: none;
-  cursor: pointer;
+}
+#lead-form {
+  padding: 10px;
+}
+#lead-form input, #lead-form textarea {
+  width: calc(100% - 20px);
+  margin-bottom: 8px;
+  padding: 5px;
+}
+#submit-lead {
+  width: 100%;
+  padding: 6px;
+  background-color: #4b0082;
+  color: white;
+  border: none;
 }
