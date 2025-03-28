@@ -57,7 +57,7 @@ document.getElementById("send-btn").onclick = async () => {
         name: userName,
         email: userEmail,
         message: input,
-        page: currentPage // 🟣 Send current page to backend
+        page: currentPage // ⬅️ Send current page to backend
       })
     });
 
