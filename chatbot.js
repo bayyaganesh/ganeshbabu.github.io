@@ -44,7 +44,7 @@ document.getElementById("send-btn").onclick = async () => {
     });
     const data = await res.json();
     console.log("Response from n8n:", data);
-   document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> ${data.response || 'Sorry, something went wrong.'}</div>`;
+   document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> ${data.response || data.reply || 'Sorry, something went wrong.'}</div>`;
   } catch (err) {
     document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> Error connecting to server.</div>`;
   }
