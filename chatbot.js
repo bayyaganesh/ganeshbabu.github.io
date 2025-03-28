@@ -42,13 +42,8 @@ document.getElementById("send-btn").onclick = async () => {
     const data = await res.json();
     console.log("Response from n8n:", data);
 
-    // Handle structured OpenAI response
-    const key = Object.keys(data)[0];
-    const nested = data[key];
-    const nestedText = typeof nested === "object" ? Object.values(nested)[0] : "";
-    const reply = `${key} ${nestedText}`;
-
-    document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> ${reply || 'Sorry, something went wrong.'}</div>`;
+    const reply = data.response || "Sorry, something went wrong.";
+    document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> ${reply}</div>`;
   } catch (err) {
     console.error("Chatbot error:", err);
     document.getElementById("chat-log").innerHTML += `<div><strong>Bot:</strong> Error connecting to server.</div>`;
@@ -62,7 +57,7 @@ document.getElementById("submit-lead").onclick = async () => {
   if (!name || !email || !message) return alert("Please fill all fields");
 
   try {
-    await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/tbn-lead-capture", {
+    await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/lead-capture", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, message })
