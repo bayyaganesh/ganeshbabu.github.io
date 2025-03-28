@@ -31,7 +31,7 @@ document.getElementById("send-btn").onclick = async () => {
   document.getElementById("user-input").value = "";
 
   try {
-    const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/tbn-smart-ai", {
+    const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/enthiran-chatbot", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: input })
