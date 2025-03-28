@@ -1,8 +1,20 @@
+// 🔍 UTM extractor
+function getUTMParams() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return {
+    utm_source: urlParams.get('utm_source') || "Direct",
+    utm_medium: urlParams.get('utm_medium') || "Web",
+    utm_campaign: urlParams.get('utm_campaign') || "None"
+  };
+}
+
+// 🤖 Create chatbot icon
 const botIcon = document.createElement("div");
 botIcon.id = "chatbot-icon";
 botIcon.innerHTML = '<img src="assets/tbn-bot-icon.png" alt="Chatbot" />';
 document.body.appendChild(botIcon);
 
+// 💬 Create chatbot container
 const chatContainer = document.createElement("div");
 chatContainer.id = "chatbot-container";
 chatContainer.innerHTML = `
@@ -22,6 +34,7 @@ document.body.appendChild(chatContainer);
 
 botIcon.onclick = () => chatContainer.classList.toggle("visible");
 
+// 💬 Chatbot conversation
 document.getElementById("send-btn").onclick = async () => {
   const input = document.getElementById("user-input").value.trim();
   const userName = document.getElementById("lead-name")?.value || "Guest";
@@ -48,17 +61,26 @@ document.getElementById("send-btn").onclick = async () => {
   }
 };
 
+// 📩 Lead form submission with UTM tracking
 document.getElementById("submit-lead").onclick = async () => {
   const name = document.getElementById("lead-name").value;
   const email = document.getElementById("lead-email").value;
   const message = document.getElementById("lead-message").value;
+
   if (!name || !email || !message) return alert("Please fill all fields");
+
+  const utmParams = getUTMParams(); // ⬅️ Add campaign tracking
 
   try {
     const res = await fetch("https://ganeshbabubayya.app.n8n.cloud/webhook/lead-capture", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, message })
+      body: JSON.stringify({
+        name,
+        email,
+        message,
+        ...utmParams // ⬅️ Include utm_source, utm_medium, utm_campaign
+      })
     });
 
     const result = await res.json();
@@ -66,11 +88,11 @@ document.getElementById("submit-lead").onclick = async () => {
 
     alert(`🎉 Thanks, ${name}! We'll get back to you shortly.`);
 
-    // Clear the form fields after submission
+    // Clear the form
     document.getElementById("lead-name").value = "";
     document.getElementById("lead-email").value = "";
     document.getElementById("lead-message").value = "";
-    
+
   } catch (err) {
     console.error("Lead submission error:", err);
     alert("Lead submission failed.");
