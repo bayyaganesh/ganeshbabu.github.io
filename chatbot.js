@@ -8,7 +8,7 @@ document.body.appendChild(botIcon);
 const chatContainer = document.createElement("div");
 chatContainer.id = "chatbot-container";
 chatContainer.innerHTML = `
-  <div id="chat-header">🤖 TBN Smart Assistant</div>
+  <div id="chat-header">🤖 Enthiran</div>
   <div id="chat-log"></div>
   <input type="text" id="user-input" placeholder="Ask me anything..." />
   <button id="send-btn">Send</button>
